@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load cache %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>首页</title>
+
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <style>
+        body {
+            overflow-x:hidden;
+            padding-bottom:50px;
+        }
+        .warning_num {
+            color:red;
+        }
+        div.col-md-2 {
+          margin-top:80px
+        }
+        div.col-md-8 {
+          margin-top:50px
+        }
+        .image-row {
+        margin-top:10px
+        }
+        .form-inline {
+        margin-top:10px;
+        margin-bottom:10px;
+        }
+        .navbar-form {
+            display: inline-block;
+        }
+    </style>
+
+<body>
+    <!--导航条-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" width="20px" height="20px" src="{% static 'images/Brand.png' %}">
+            </a>
+          </div>
+            <!--实现跳转-->
+          <a class="navbar-brand" href="/home/">首页</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/managerperf/">个人表现</a></li>
+            <li><a href="/overview/">总体表现</a></li>
+            <li><a href="/share/">资源共享</a></li>
+            <li><a href="/require/">新增需求</a></li>
+            <li><a href="#">当前在线:{{name}}</a></li>
+            <li><a href="/login/">退出</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!--主内容-->
+    <div class="row" id="row1">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h3>每人站点表现</h3>
+            <!--站点负责人列表-->
+            <div class="col-md-12">
+                <ul class="nav nav-tabs">
+                    {% for name,num in charge_num.iterrows %}
+                    <li><a href="/managerperf/{{name}}/">{{name}}({{num.ad_manger}})</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!--搜索框-->
+            <div>
+                <form class="navbar-form" action="" method="post">
+                    <div class="form-group form-inline">
+                      <input type="text" class="form-control" placeholder="Search station" name="search_station">
+                      <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                </form>
+                <form class="navbar-form" action="" method="post">
+                    <div class="form-group form-inline">
+                        <button type="submit" class="btn  btn-default {% if every_page_num == 5 %}btn-primary{% endif %}" name="select_page_num" value="5">5</button>
+                        <button type="submit" class="btn  btn-default {% if every_page_num == 10 %}btn-primary{% endif %}" name="select_page_num" value="10">10</button>
+                        <button type="submit" class="btn  btn-default {% if every_page_num == 20 %}btn-primary{% endif %}" name="select_page_num" value="20">20</button>
+                        <button type="submit" class="btn  btn-default {% if every_page_num == data_len %}btn-primary{% endif %}" name="select_page_num" value="全部">全部</button>
+                    </div>
+                </form>
+            </div>
+            <!--数据表 主体-->
+            <table class="table table-striped">
+                <tr class="success">
+                    <td>序号</td>
+                    <td>账号</td>
+                    <td>主管</td>
+                    <td>站点负责人</td>
+                    <td>接手日期</td>
+                    <td>acos</td>
+                    <td>广告销售额</td>
+                    <td>站点销售额</td>
+                    <td>销售占比</td>
+                    <td>cpc</td>
+                    <td>更新时间</td>
+                </tr>
+                {% for index,row_value in one_manager_page_info.iterrows %}
+                    {% if  forloop.counter|divisibleby:2 %}
+                        <tr class="info">
+                    {% endif %}
+                        <td>{{index}}</td>
+                        <td>{{row_value.station}}</td>
+                        <td>{{row_value.owner}} </td>
+                        <td>{{row_value.ad_manger}} </td>
+                        <td>{{row_value.accept_time}}</td>
+                        <td>{{row_value.acos}}</td>
+                        <td>{{row_value.ad_sales}} </td>
+                        <td>{{row_value.shop_sales}}</td>
+                        <td>{{row_value.percentage}}</td>
+                        <td>{{row_value.cpc}} </td>
+                        <td>{{row_value.update_time}} </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <!--分页-->
+            <nav style="text-align: center;">
+                <ul class="pagination pagination-lg">
+                    <li>
+                      <a href="/managerperf/{{manager_name}}/{{every_page_num}}/{{current_page}}/left_page" aria-label="Previous">
+                          <span class="glyphicon glyphicon-triangle-left"></span>
+                      </a>
+                    </li>
+                    {% for num in page_list %}
+                        {% if num == current_page %}
+                            <li class="active">
+                                <a href="/managerperf/{{manager_name}}/{{every_page_num}}/{{num}}/">{{num}}</a>
+                            </li>
+                            {% else %}
+                            <li class=>
+                                <a href="/managerperf/{{manager_name}}/{{every_page_num}}/{{num}}/">{{num}}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    <li>
+                      <a href="/managerperf/{{manager_name}}/{{every_page_num}}/{{current_page}}/right_page" aria-label="Next">
+                        <span class="glyphicon glyphicon-triangle-right"></span>
+                      </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>首页</title>
+
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <style>
+        body {
+            overflow-x:hidden;
+            margin:0px;
+            padding:0px;
+        }
+        #row1 {
+            margin-top:120px
+        }
+        .col-md-2 a{
+            float:right;
+        }
+    </style>
+
+<body>
+    <!--导航条-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" width="20px" height="20px" src="{% static 'images/Brand.png' %}">
+            </a>
+          </div>
+            <!--实现跳转-->
+          <a class="navbar-brand" href="/home/">站点表现</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/managerperf/">个人表现</a></li>
+            <li><a href="/overview/">总体表现</a></li>
+            <li><a href="/share/">资源共享</a></li>
+            <li><a href="/require/">新增需求</a></li>
+            <li><a href="#">当前在线:{{name}}</a></li>
+            <li><a href="/login/">退出</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!--主内容-->
+    <div class="row" id="row1">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-1">
+            <ul class="list-group">
+            {% for day in days %}
+                {% if choose_day == day %}
+                    <a href="" class="list-group-item active disabled"><em>{{day}}</em>天情况</a>
+                {% endif %}
+                {% if choose_day != day %}
+                    <a href="/overview/{{day}}/" class="list-group-item"><em>{{day}}</em>天情况</a>
+                {% endif %}
+           {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <tr class="warning">
+                    <td>站点</td>
+                    <td>广告接手人</td>
+                    <td>广告花费</td>
+                    <td>广告销售额</td>
+                    <td>站点销售额</td>
+                    <td>ACoS</td>
+                    <td>销售占比</td>
+                    <td>花费占比</td>
+                </tr>
+                {% for index,row_value in station_overview_stations.iterrows %}
+                    {% if  forloop.counter|divisibleby:2 %}
+                        <tr class="info">
+                    {% endif %}
+                            <td><a href="{{row_value.station}}/">{{row_value.station}}</a></td>
+                            <td>{{row_value.ad_manger}}</td>
+                            <td>{{row_value.ad_spend}} </td>
+                            <td>{{row_value.ad_sales}} </td>
+                            <td>{{row_value.shop_sales}} </td>
+                            <td>{{row_value.acos}} </td>
+                            <td>{{row_value.sale_rate}} </td>
+                            <td>{{row_value.spend_rate}} </td>
+                        </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div>
+            <a href="{% url 'overview_days' %}" class="btn btn-warning btn-lg">返回上一级</a>
+        </div>
+    </div>
+
+</body>
+</html>

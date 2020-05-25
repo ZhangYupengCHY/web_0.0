@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>首页</title>
+
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <style>
+        body {
+            background-image:url("{% static 'images/lake16.png' %}");
+            background-size: cover;
+            overflow-x:hidden;
+            padding-bottom:50px;
+        }
+        #row1 {
+            margin-top:60px;
+        }
+        h2 {
+            text-align:center;
+        }
+        .for-divide {
+                height:30px;
+        }
+    </style>
+
+<body>
+    <!--导航条-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" width="20px" height="20px" src="{% static 'images/Brand.png' %}">
+            </a>
+          </div>
+            <!--实现跳转-->
+          <a class="navbar-brand" href="">ADAnalysis</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="/register/"><span class="glyphicon glyphicon-hand-right"> </span> 注册</a>
+            </li>
+            <li>
+                <a href=""><span class="glyphicon glyphicon-send"> </span> 联系我们</a>
+            </li>
+        </ul>
+
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!--主内容-->
+    <div class="row" id="row1">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h2>login / 登录</h2>
+            <div class="for-divide"></div>
+            <form action="" method="post">
+              <div class="form-group">
+                <label for="">login name/用户名:</label>
+                <input type="text" class="form-control " id="" placeholder="username" name="username">
+                <small class="help-block">请输入中字母、数字和下划线.</small>
+              </div>
+              <div class="form-group">
+                <label for="">password/密码:</label>
+                <input type="password" class="form-control" id="" placeholder="password" name="password">
+                  <small class="help-block">请输入中字母、数字和下划线，长度超过8.</small>
+              </div>
+              <button type="submit" class="btn btn-warning pull-right">login/登录</button>
+              <span style="color:red;">{{error_msg}}<a href="/register/" style="color:blue;">注册</a></span>
+        </div>
+
+    </div>
+
+</body>
+</html>

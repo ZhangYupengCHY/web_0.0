@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>CSS组件——下拉菜单</title>
+
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+  <style>
+  </style>
+
+<body>
+<!--
+表单：
+表单框架:.form-group
+表单框：.form-control
+表单框颜色: .has-warning .has-error 或 .has-success
+表单框说明:help-block
+表单添加反馈图标:has-feedback
+表单框类图标:
+单选框:.radio
+多选框:.checkbox
+内链：form-inline
+输入框组:
+  input-group
+  输入框组尺寸:input-group-lg/sm/xs
+  input-group-addon
+  input-group-btn
+水平排列的表单:form-horizontal
+单选框/复选框水平:.radio-inline/checkbox-inline
+禁用
+[readonly]
+[disabled]
+.fieldset
+.legend
+类型:
+  输入：input
+  留言:textarea
+  选择:select->option
+  单选框: .radio (名字相同的选择一个)
+  复选框: .checkbox
+  文件上传：.file
+
+-->
+<div class="contain">
+  <h1 class="page-header">bootstrap前端开发</h1>
+  <div class="col-md-8">
+<!--    输入-->
+    <form class="">
+      <div class="from-group has-error has-feedback">
+        <label class='control-label' >姓名:</label>
+        <div class="input-group">
+          <span class="input-group-addon">No.</span>
+          <input type="text" class="form-control">
+        </div>
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <p class="help-block">输入您的账号</p>
+      </div>
+      <div class="from-group has-success">
+        <div class="input-group">
+          <span class="input-group-addon">密码:</span>
+          <input type="password" class="form-control">
+        </div>
+        <p class="help-block">输入您的密码</p>
+      </div>
+    </form>
+<!--    留言-->
+    <div class="form-group">
+      <label for="">留言:</label>
+      <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+    </div>
+<!--    选择-->
+    <div class="form-group">
+      <label for="">性别:</label>
+      <select name="" id="" class="form-control">
+        <option value="">男</option>
+        <option value="">女</option>
+        <option value="">隐私</option>
+      </select>
+    </div>
+<!--    提交-->
+    <div class="form-group">
+      <input type="submit" value="提交" class="btn btn-primary">
+      <input type="reset" value="取消" class="btn btn-warning">
+    </div>
+<!--    单选框-->
+    <div class="form-group">
+      <label for="">选择您的性别:</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="sex">男
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="sex">女
+        </label>
+      </div>
+    </div>
+    <!--      复选框-->
+    <div class="form-group">
+      <label for="">选择你喜欢的运动:</label>
+      <div class="checkbox">
+<!--        将label中的for去掉-->
+        <label>
+          <input type="checkbox">篮球
+        </label>
+      </div>
+      <div class="checkbox">
+        <!--        将label中的for去掉-->
+        <label>
+          <input type="checkbox">足球
+        </label>
+      </div>
+      <div class="checkbox">
+        <!--        将label中的for去掉-->
+        <label>
+          <input type="checkbox">网球
+        </label>
+      </div>
+<!--      文件上传-->
+      <div class="form-group">
+        <label for="">请上传你想要上传的文件:</label>
+        <input type="file" class="form-control">
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

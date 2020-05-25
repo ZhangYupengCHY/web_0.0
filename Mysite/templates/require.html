@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load cache %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>需求</title>
+
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <style>
+        body {
+            overflow-x:hidden;
+            padding-bottom:50px;
+        }
+        .warning_num {
+            color:red;
+        }
+        div.col-md-2 {
+          margin-top:60px
+        }
+        div.col-md-6 {
+          margin-top:80px
+        }
+        .image-row {
+        margin-top:10px
+        }
+    </style>
+
+<body>
+    <!--导航条-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" width="20px" height="20px" src="{% static 'images/Brand.png' %}">
+            </a>
+          </div>
+            <!--实现跳转-->
+          <a class="navbar-brand" href="/home/">首页</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/managerperf/">个人表现</a></li>
+            <li><a href="/overview/">总体表现</a></li>
+            <li><a href="/share/">资源共享</a></li>
+            <li><a href="#">新增需求</a></li>
+            <li><a href="#">当前在线:{{name}}</a></li>
+            <li><a href="/login/">退出</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!--主内容-->
+    <div class="row" id="row1">
+        <div class="col-md-2">
+             {% autoescape off %}
+                {{ plt_div }}
+             {% endautoescape %}
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-warning">
+              <!-- Default panel contents -->
+              <div class="panel-heading">需求列表</div>
+              <!-- List group -->
+                <table class="table table-striped">
+                    <tr class="success">
+                        <td>序号</td>
+                        <td>类型</td>
+                        <td>简介</td>
+                        <td>提交人</td>
+                        <td>提交时间</td>
+                        <td>状态</td>
+                    </tr>
+
+                    {% for index,row_value in required_info.iterrows %}
+                    {% if  forloop.counter|divisibleby:2 %}
+                        <tr class="info">
+                    {% else %}
+                         <tr>
+                    {% endif %}
+                        <td>{{row_value.id}}</td>
+                        <td>{{row_value.type}}</td>
+                        <td>{{row_value.brief}}</td>
+                        <td>{{row_value.submitter}}</td>
+                        <td>{{row_value.datetime}}</td>
+                        <td>{{row_value.status}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <form action="" method="post">
+                <h4>需求提交</h4>
+                <div class="from-group">
+                    <h4><label class="label label-primary">需求类型</label></h4>
+                    <select class="form-control" name='require_type'>
+                      <option>新需求</option>
+                      <option>BUG优化</option>
+                      <option>缺陷</option>
+                      <option>建议</option>
+                    </select>
+                </div>
+                <div class="from-group">
+                    <h4><label class="label label-primary">需求摘要</label></h4>
+                    <input type="text" class="form-control" placeholder="长度最好不要超过20字" name='require_brief'>
+                </div>
+                <div class="from-group">
+                    <h4><label class="label label-primary">需求描述</label></h4>
+                    <textarea name="require_content" id="" cols="40" rows="5" placeholder="输入具体内容,尽量简洁描述问题" ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">提交需求</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

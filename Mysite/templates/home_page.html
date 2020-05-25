@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load cache %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>首页</title>
+
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <style>
+        body {
+            overflow-x:hidden;
+            padding-bottom:50px;
+        }
+        .warning_num {
+            color:red;
+        }
+        div.col-md-2 {
+          margin-top:80px
+        }
+        div.col-md-7 {
+          margin-top:60px
+        }
+        .image-row {
+        margin-top:10px
+        }
+    </style>
+
+<body>
+    <!--导航条-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" width="20px" height="20px" src="{% static 'images/Brand.png' %}">
+            </a>
+          </div>
+            <!--实现跳转-->
+          <a class="navbar-brand" href="/home/">首页</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/managerperf/">个人表现</a></li>
+            <li><a href="/overview/">总体表现</a></li>
+            <li><a href="/share/">资源共享</a></li>
+            <li><a href="/require/">新增需求</a></li>
+            <li><a href="#">当前在线:{{name}}</a></li>
+            <li><a href="/login/">退出</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!--主内容-->
+    <div class="row" id="row1">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <div>
+                <div>
+                    <p></p>
+                    <em>--本周单休 Beautiful Day</em>
+                    <p></p>
+                </div>
+                <p></p>
+                <p>今天</p>
+                <p></p>
+                <p>明天</p>
+                <p></p>
+                <em>--最近天气良好,温度稳定</em>
+                <p></p>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">公告栏</h3>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">公告1</li>
+                    <li class="list-group-item">公告2</li>
+                    <li class="list-group-item">公告3 <span class="badge">14</span></li>
+                    <li class="list-group-item active">公告4 <span class="badge">14</span></li>
+                </ul>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">团队成员</h3>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <img src="{% static 'images/1.jpg' %}" width="100%" height="120px" alt="">
+                    </li>
+                    <li class="list-group-item">
+                        <h4 class="list-group-item-heading">成员风采1</h4>
+                        <p class="list-group-item-text">...</p>
+                    </li>
+                    <li class="list-group-item">成员风采2<span class="badge">8</span></li>
+                    <li class="list-group-item active">成员风采3<span class="badge">10</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <h3>广告组概要</h3>
+            <p>目前广告组 接手店铺：<strong style="font-size:28px;color:red">357</strong>个，接手站点：<strong style="font-size:28px;color:red">2060</strong>个，采取科学有效的方法， 长期有效地控制了广告的花费，
+                提高了广告的竞争力，带来了明显的收益。 </p>
+            <p></p>
+            <form action="" method="post">
+                <div class="form-group form-inline">
+                  <input type="text" class="form-control" placeholder="Search station" name="search_station">
+                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                </div>
+            </form>
+            <table class="table table-striped">
+                <tr class="success">
+                    <td>账号</td>
+                    <td>站点</td>
+                    <td>日期</td>
+                    <td>广告花费</td>
+                    <td>广告销售额</td>
+                    <td>acos</td>
+                    <td>站点销售额</td>
+                    <td>花费占比</td>
+                    <td>销售占比</td>
+                </tr>
+                {% for index,row_value in select_station_info.iterrows %}
+                    {% if  forloop.counter|divisibleby:2 %}
+                        <tr class="info">
+                    {% endif %}
+                        <td>{{row_value.account}}</td>
+                        <td>{{row_value.site}} </td>
+                        <td>{{row_value.update_datetime}} </td>
+                        <td>
+                            {% if row_value.ad_spend > 5000 %}
+                                <span  style="color:red">
+                            {% endif%}
+                                {{row_value.ad_spend}}
+                                </span>
+                        </td>
+                        <td>{{row_value.ad_sales}} </td>
+                        <td>
+                            {% if row_value.acos > 0.11 %}
+                                <span style="color:red">
+                            {% endif %}
+                                {{row_value.acos_str}}
+                                </span>
+                        </td>
+                        <td >
+                            {% if row_value.shop_sales > 140000 %}
+                                <div style="color:red">
+                            {% endif%}
+                            {{row_value.shop_sales}}
+                                </div>
+                        </td>
+                        <td>{{row_value.spend_rate_str}} </td>
+                        <td>{{row_value.sale_rate_str}} </td>
+                        </tr>
+                {% endfor %}
+            </table>
+        </div>
+            <nav style="text-align: center;">
+                <ul class="pagination pagination-lg">
+                    <li>
+                      <a href="#" aria-label="Previous">
+                          <span class="glyphicon glyphicon-triangle-left"></span>
+                      </a>
+                    </li>
+                    <li>
+                        <a href="">1</a>
+                    </li>
+                    <li>
+                        <a href="">2</a>
+                    </li>
+                    <li>
+                        <a href="">3</a>
+                    </li>
+                    <li>
+                        <a href="">4</a>
+                    </li>
+                    <li>
+                        <a href="">5</a>
+                    </li>
+                    <li>
+                        <a href="">6</a>
+                    </li>
+                    <li>
+                        <a href="">7</a>
+                    </li>
+                    <li>
+                        <a href="">8</a>
+                    </li>
+                    <li>
+                        <a href="">9</a>
+                    </li>
+                    <li>
+                        <a href="">10</a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="Next">
+                        <span class="glyphicon glyphicon-triangle-right"></span>
+                      </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="row image-row" >
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h4>图片展示</h4>
+            <p></p>
+            <div class="col-md-4">
+                <img src="{% static 'images/lake1.jpg' %}" width="100%" height="100%" alt="">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/lake2.png' %}" width="100%" height="100%" alt="">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/lake3.jpg' %}" width="100%" height="100%" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="row image-row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="col-md-4">
+                <img src="{% static 'images/lake5.jpg' %}" width="100%" height="100%" alt="">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/lake6.jpg' %}" width="100%" height="100%" alt="">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/lake7.jpg' %}" width="100%" height="100%" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
