@@ -23,6 +23,7 @@ def getUserInfo():
 
 def login(request):
     if request.method == 'POST':
+        request.get_signed_cookie()
         loginUserName = request.POST.get('username')
         loginPassword = request.POST.get('password')
 

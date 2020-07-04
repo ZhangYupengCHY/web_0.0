@@ -65,11 +65,7 @@
     </nav>
     <!--主内容-->
     <div class="row" id="row1">
-        <div class="col-md-2">
-             {% autoescape off %}
-                {{ plt_div }}
-             {% endautoescape %}
-        </div>
+        <div class="col-md-2"></div>
         <div class="col-md-6">
             <div class="panel panel-warning">
               <!-- Default panel contents -->
@@ -124,6 +120,17 @@
                 </div>
                 <button type="submit" class="btn btn-primary">提交需求</button>
             </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <!--嵌入图标-->
+        <div class="col-md-6">
+            {% autoescape off %}
+                {{ timeline }}
+            {% endautoescape %}
         </div>
     </div>
 

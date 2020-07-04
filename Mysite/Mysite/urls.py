@@ -32,13 +32,15 @@ from django.views.decorators.cache import cache_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('share/', share_overviews.share),
+    path('share/', share_overviews.upload_files),
     path('share/<file_name>/', share_overviews.download),
     path('login/', cache_page(60)(login_views.login)),
     path('home/', home_views.home_page),
+    path('home/plotly/', home_views.my_plotly),
     path('', home_views.home_page),
     path('overview/', include('station_data_overview.urls')),
     path('register/', cache_page(60)(register_views.register)),
     path('require/',require_views.require),
+    path('require/update/',require_views.update),
     path('managerperf/',include('manager_perf.urls'))
 ]
