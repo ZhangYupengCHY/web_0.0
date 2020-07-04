@@ -1,37 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="95143c04-e52e-4841-b63d-fb6955def39f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Mysite/find_psw_by_name.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mysite/public_function/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/web_0.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/web_0.0.iml" afterDir="false" />
+    <list default="true" id="95143c04-e52e-4841-b63d-fb6955def39f" name="Default Changelist" comment="绘图html">
+      <change afterPath="$PROJECT_DIR$/Mysite/public_function/conn_db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Mysite/public_function/static_params.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Mysite/static/css/bootstrap-editable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Mysite/static/js/bootstrap-editable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Mysite/static/js/bootstrap-table-editable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/123.html" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/123.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/Mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/Mysite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/login/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/require/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/require/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/resources/0512 Yoidesu-US 广告需求（定向广告.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/resources/IBM DB2通用数据库SQL入门.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/resources/PyQt5快速开发与实战.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/resources/SQL宝典(中文版).pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/resources/api_request_files.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/resources/mysql设计事件.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/resources/上传创建DREAMING_CA 所有类型(1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/resources/创建模板.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/resources/完整站点.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/resources/账号对应ID.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/share_resource/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/share_resource/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/share_resource/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/station_data_overview/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/station_data_overview/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/temp-plot.html" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/temp-plot.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/templates/home_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/templates/overview_by_days.html" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/templates/overview_by_days.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/templates/require.html" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/templates/require.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/templates/share_resource.html" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/templates/share_resource.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/templates/test1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/templates/test1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mysite/test_plotly.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mysite/test_plotly.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,13 +15,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="web_0.0" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mysite/home/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+            <state relative-caret-position="76">
+              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -56,22 +35,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mysite/templates/overview_by_station_days.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="87" column="21" lean-forward="true" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
+            <state relative-caret-position="1653">
+              <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Mysite/require/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Mysite/require/views.py">
+        <entry file="file://$PROJECT_DIR$/Mysite/public_function/conn_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#652#702#1" />
-                <element signature="e#848#925#1" />
-              </folding>
+            <state relative-caret-position="152">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -79,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://D:/my_software/anaconda/Lib/warnings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="2527">
               <caret line="133" column="39" selection-start-line="133" selection-start-column="33" selection-end-line="133" selection-end-column="39" />
             </state>
           </provider>
@@ -88,7 +74,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mysite/templates/require.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="1425">
               <caret line="130" column="25" selection-start-line="130" selection-start-column="15" selection-end-line="130" selection-end-column="25" />
               <folding>
                 <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -208,10 +194,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="630" />
-    <option name="y" value="40" />
+    <option name="x" value="672" />
+    <option name="y" value="170" />
     <option name="width" value="1207" />
-    <option name="height" value="1004" />
+    <option name="height" value="931" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -221,6 +207,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -228,22 +215,10 @@
               <item name="web_0.0" type="b2602c69:ProjectViewProjectNode" />
               <item name="web_0.0" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="web_0.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web_0.0" type="462c0819:PsiDirectoryNode" />
-              <item name="Mysite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web_0.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web_0.0" type="462c0819:PsiDirectoryNode" />
-              <item name="Mysite" type="462c0819:PsiDirectoryNode" />
-              <item name="require" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -415,7 +390,7 @@
     <option name="localTasksCounter" value="3" />
     <servers />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -425,15 +400,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="630" y="40" width="1207" height="1004" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Favorites" order="0" sideWeight="0.2852459" side_tool="true" weight="0.15753424" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.82718897" visible="true" weight="0.23096664" />
-      <window_info id="Structure" order="2" sideWeight="0.17281106" side_tool="true" visible="true" weight="0.23096664" />
+      <window_info id="Favorites" order="0" sideWeight="0.4271739" side_tool="true" weight="0.17386723" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.5728261" visible="true" weight="0.17386723" />
+      <window_info id="Structure" order="2" sideWeight="0.4271739" side_tool="true" weight="0.17386723" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.44009218" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5004277" side_tool="true" weight="0.12672812" />
-      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50052685" side_tool="true" weight="0.32934782" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="2" sideWeight="0.49947312" visible="true" weight="0.2521739" />
       <window_info anchor="bottom" id="Python Console" order="3" weight="0.30108696" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.329718" />
@@ -450,6 +425,46 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="更新画图选项" />
@@ -801,16 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Mysite/public_function/conn_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="18" column="15" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-          <folding>
-            <element signature="e#95#114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/plotly/graph_objs/_layout.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -896,17 +901,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Mysite/templates/overview_by_station_days.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="87" column="21" lean-forward="true" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
+        <state relative-caret-position="1653">
+          <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Mysite/render.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Mysite/render.html" />
     <entry file="file://$PROJECT_DIR$/Mysite/templates/require.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="1425">
           <caret line="130" column="25" selection-start-line="130" selection-start-column="15" selection-end-line="130" selection-end-column="25" />
           <folding>
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -918,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Mysite/home/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        <state relative-caret-position="76">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -928,20 +931,25 @@
     </entry>
     <entry file="file://D:/my_software/anaconda/Lib/warnings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="2527">
           <caret line="133" column="39" selection-start-line="133" selection-start-column="33" selection-end-line="133" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Mysite/require/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+        <state relative-caret-position="131">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#652#702#1" />
-            <element signature="e#848#925#1" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Mysite/public_function/conn_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
