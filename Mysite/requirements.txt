@@ -1,4 +1,4 @@
-Django==2.2.12
+Django==2.2.21
 django-pandas==0.6.1
 django-redis==4.11.0
 numpy==1.18.3
